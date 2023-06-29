@@ -1,0 +1,78 @@
+import * as React from "react";
+import Box from "@mui/material/Box";
+import Drawer from "@mui/material/Drawer";
+import CssBaseline from "@mui/material/CssBaseline";
+import Toolbar from "@mui/material/Toolbar";
+import List from "@mui/material/List";
+import Typography from "@mui/material/Typography";
+import Divider from "@mui/material/Divider";
+import ListItem from "@mui/material/ListItem";
+import ListItemButton from "@mui/material/ListItemButton";
+import ListItemIcon from "@mui/material/ListItemIcon";
+import ListItemText from "@mui/material/ListItemText";
+import InboxIcon from "@mui/icons-material/MoveToInbox";
+import MailIcon from "@mui/icons-material/Mail";
+import { Header } from "@/containers/Header/Header";
+import Sidebar from "@/components/Sidebar/Sidebar";
+import piechart from "@/assets/images/pieChart.png";
+import cardchart from "@/assets/images/card_chart_order.png";
+import cardTotalrevenue from "@/assets/images/card_total_revenue.png";
+import cardcustomermap from "@/assets/images/card_customer_map.png";
+import totalRevenue from "../../assets/images/totalRevenue.png";
+import totalOrders from "../../assets/images/totalOrders.png";
+import totalDelivered from "../../assets/images/totalDelivered.png";
+import totalCancelled from "../../assets/images/totalCancelled.png";
+import { Grid, Stack } from "@mui/material";
+import Image from "next/image";
+import { Cards } from "@/components/Cards";
+const drawerWidth = 240;
+
+export default function Dashboard() {
+  const ordersData = [
+    {
+      image: totalOrders,
+      numbers: "75",
+      orders: "Total Orders",
+      percentage: "4%",
+      days: "30days",
+    },
+    {
+      image: totalDelivered,
+      numbers: "357",
+      orders: " Total Delivered",
+      percentage: "4%",
+      days: "30days",
+    },
+    {
+      image: totalCancelled,
+      numbers: "95",
+      orders: "  Total Cancelled",
+      percentage: "4%",
+      days: "30days",
+    },
+    {
+      image: totalRevenue,
+      numbers: "$128",
+      orders: "  Total Revenue",
+      percentage: "4%",
+      days: "30days",
+    },
+  ];
+
+  return (
+    <Box sx={{ display: "flex", backgroundColor: "#f3f2f7" }}>
+      <CssBaseline />
+      <Header />
+      <Sidebar />
+
+      <Box component="main" sx={{ flexGrow: 1, bgcolor: "transparant", p: 3 }}>
+        <Toolbar />
+        <Box sx={{ display: "flex", gap: "1rem" }}>
+          {ordersData.map((item) => {
+            return <Cards data={item} />;
+          })}
+        </Box>
+      </Box>
+    </Box>
+  );
+}

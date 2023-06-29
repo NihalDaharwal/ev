@@ -1,0 +1,9 @@
+*, body{
+  margin: 0;
+  padding: 0;
+  background: #f3f2f7;
+}
+
+.MuiDrawer-paper::-webkit-scrollbar { 
+  display: none;  /* Safari and Chrome */
+}
